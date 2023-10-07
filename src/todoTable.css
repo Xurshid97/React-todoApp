@@ -1,0 +1,60 @@
+.container {
+    width: 70%;
+    margin: 15px auto;
+    box-shadow: 0 0 5px black;
+    padding: 15px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formClass {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 25px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+input {
+    padding: 15px 50px;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-weight: 900;
+    padding: 0 15px;
+}
+
+.tableClass {
+    border-collapse: collapse;
+    margin-top: 50px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.382);
+}
+th {
+    border: 1px solid black;
+    font-size: 22px;
+    padding: 10px 25px;
+    background-color: green;
+    color: white;
+}
+
+td {
+    border: 1px solid black;
+    font-size: 22px;
+    padding: 10px 25px;
+}
+
+.formButton {
+    padding: 10px 15px;
+    border-radius: 25px;
+}
