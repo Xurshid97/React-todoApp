@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .container {
     width: 70%;
     margin: 15px auto;
@@ -35,12 +40,22 @@ button {
     padding: 0 15px;
 }
 
+button:hover {
+    background-color: rgb(73, 61, 61);
+}
+
+.tableButton {
+    padding: 10px 15px;
+    border-radius: 25px;
+}
+
 .tableClass {
     border-collapse: collapse;
     margin-top: 50px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.382);
 }
-th {
+
+th, td {
     border: 1px solid black;
     font-size: 22px;
     padding: 10px 25px;
@@ -48,13 +63,37 @@ th {
     color: white;
 }
 
-td {
-    border: 1px solid black;
-    font-size: 22px;
-    padding: 10px 25px;
+td{
+    background-color: white;
+    color: black;
 }
 
-.formButton {
-    padding: 10px 15px;
-    border-radius: 25px;
+
+
+@media screen and (max-width: 750px) {
+    .formClass input {
+        max-width: 200px;
+        padding: 10px;
+    }
+
+    th, td {
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+    .tableButton {
+        padding: 1px 5px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .formClass input {
+        max-width: 150px;
+        padding: 5px;
+    }
+    th, td {
+        font-size: 14px;
+        padding: 5px;
+    }
 }

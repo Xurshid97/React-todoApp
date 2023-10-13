@@ -11,41 +11,60 @@ class TableTodo extends Component {
             TableTodoList: []
         }
 
-        this.InputMessageWritten = this.InputMessageWritten.bind(this)
-        this.FormSubmitted = this.FormSubmitted.bind(this)
+        // this.InputMessageWritten = this.InputMessageWritten.bind(this)
+        // this.FormSubmitted = this.FormSubmitted.bind(this)
     }
 
-    InputMessageWritten(e){
+    InputMessageWritten = (e) => {
         this.setState({
             inputMessage: e.target.value
         })
     }
 
-    FormSubmitted(e) {
+    FormSubmitted = (e) => {
         e.preventDefault()
+        if (this.state.inputMessage.trim() == '') {
+            alert('Please enter the task')
+        } else {
+            let newItem = {
+                id: this.state.TableTodoList.length + 1,
+                task_detail: this.state.inputMessage
+            }
+            this.state.inputMessage = ''
 
-        let newItem = {
-            id: this.state.TableTodoList.length + 1,
-            task_detail: this.state.inputMessage
+            this.setState((prevTasks) => ({
+                TableTodoList: [...prevTasks.TableTodoList, newItem]
+            }))
         }
-        this.state.inputMessage = ''
 
-        this.setState((prevTasks)=>({
-            TableTodoList: [...prevTasks.TableTodoList, newItem]
-        }))
+    }
+
+    RemoveTask = (e) => {
+        let id = e.target.getAttribute('data-id')
+        if (id == 0 && this.state.TableTodoList.length === 1) {
+            this.setState(() => ({
+                TableTodoList: []
+            }))
+        } else {
+            this.state.TableTodoList.splice(e.target.getAttribute('data-id'), 1)
+            console.log(this.state.TableTodoList);
+            this.setState(() => ({
+                TableTodoList: this.state.TableTodoList
+            }))
+        }
     }
 
     render() {
-        let table = this.state.TableTodoList.map((data, index)=>{
-            return(
+        let table = this.state.TableTodoList.map((data, index) => {
+            return (
                 <tr key={index}>
-                    <td>{data.id}</td>
+                    <td>{index+1}</td>
                     <td>{data.task_detail}</td>
                     <td>
-                        <button className='formButton' onClick={this.EditTask}>Edit</button>
+                        <button className='tableButton' onClick={this.EditTask}>Edit</button>
                     </td>
                     <td>
-                        <button className='formButton' onClick={this.RemoveTask}>Remove</button>
+                        <button className='tableButton' data-id={index} onClick={this.RemoveTask}>Remove</button>
                     </td>
                 </tr>
             )
