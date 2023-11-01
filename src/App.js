@@ -1,11 +1,30 @@
 import './App.css';
-import TableTodo from './TodoTable';
+import CategoryPage from './components/CategoryPage';
+import Navbar from './components/Navbar';
+import { CategoryDetailsFunc } from './components/CategoryDetails';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
+  let savedCache = localStorage.getItem('category') ? JSON.parse(localStorage.getItem('category')) : []
   return (
-    <div className="App">
-      <TableTodo />
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<CategoryPage />}></Route>
+        {
+          savedCache.map((category) => {
+            return (
+            <Route 
+              key={category.id}
+              path={'/CategoryDetails/' + category.id} 
+              element={<CategoryDetailsFunc 
+              linkID={category.id} />}>
+            </Route>)
+          })
+        }
+
+      </Routes>
+    </>
   );
 }
 

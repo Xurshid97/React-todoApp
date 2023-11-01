@@ -2,32 +2,145 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
+li {
+    list-style: none;
+}
+
+.mainPage {
+    background-color: #f8f8f8;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 35px;
+    width: 100%;
+    background-color: white;
+}
+
+.navBar ul {
+    display: flex;
+    gap: 10px;
+}
+
 .container {
-    width: 70%;
+    width: 90%;
     margin: 15px auto;
     box-shadow: 0 0 5px black;
+    background-color: white;
     padding: 15px;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+}
+.category {
+    position: absolute;
+    left: 25px;
+    font-weight: 800;
 }
 
 .formClass {
     display: flex;
+    justify-content: space-between;
     border: 1px solid black;
     border-radius: 25px;
     overflow: hidden;
-    width: fit-content;
+    min-width: 500px;
 }
 
-input {
-    padding: 15px 50px;
+.formClass input {
+    padding: 10px 15px;
+    width: 100%;
     border: none;
+    outline: none;
+}
+
+#formInput {
+    padding: 10px 15px;
+    border: 1px solid black;
+    border-bottom: none;
+    width: 90%;
+    border-radius: 25px;
     outline: none;
     font-weight: 700;
     font-size: 18px;
+}
+.allCards {
+    margin: 50px 0;
+    padding-left: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+.card {
+    min-width: 70%;
+    max-width: fit-content;
+    overflow: hidden;
+    min-height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 5px;
+}
+.cardImage {
+    width: 50px;
+    height: 50px;
+}
+.cardImage img {
+    width: 100%;
+    height: 100%;
+}
+.cardMian {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.funcInp {
+    border: 1px solid green;
+}
+
+.editTaskClass {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activeEdit {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.793);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.activeEdit input {
+    padding: 15px;
+    min-width: 500px;
+}
+
+.activeEdit button {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 9px;
+    cursor: pointer;
 }
 
 button {
@@ -36,7 +149,7 @@ button {
     background-color: black;
     color: white;
     cursor: pointer;
-    font-weight: 900;
+    font-weight: 700;
     padding: 0 15px;
 }
 
@@ -45,45 +158,29 @@ button:hover {
 }
 
 .tableButton {
-    padding: 10px 15px;
+    padding: 5px 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 25px;
+    font-weight: 600;
 }
-
-.tableClass {
-    border-collapse: collapse;
-    margin-top: 50px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.382);
-}
-
-th, td {
-    border: 1px solid black;
-    font-size: 22px;
-    padding: 10px 25px;
-    background-color: green;
-    color: white;
-}
-
-td{
-    background-color: white;
-    color: black;
-}
-
 
 
 @media screen and (max-width: 750px) {
     .formClass input {
         max-width: 200px;
         padding: 10px;
-    }
-
-    th, td {
-        font-size: 16px;
-        padding: 5px 10px;
+        min-width: none;
     }
 
     .tableButton {
         padding: 1px 5px;
         font-size: 12px;
+    }
+
+    .editTaskClass {
+        font-size: 15px;
     }
 }
 
@@ -91,9 +188,10 @@ td{
     .formClass input {
         max-width: 150px;
         padding: 5px;
+        min-width: none;
     }
-    th, td {
-        font-size: 14px;
-        padding: 5px;
+
+    .editTaskClass {
+        font-size: 13px;
     }
 }
