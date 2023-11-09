@@ -13,17 +13,6 @@ export function CategoryDetailsFunc({linkID}) {
     const [editingTask, setEditingTask] = useState(null);
     const editItemRef = useRef(null)
 
-    if (localStorageTable.length === 0) {
-        // Initialize a default category structure
-        localStorageTable = [
-          {
-            id: 0,
-            category_name: 'Default Category',
-            links: []
-          }
-        ];
-      }
-
     useEffect(() => {
         localStorage.setItem('category', JSON.stringify(localStorageTable));
     }, [TableTodoList, linkID, linkIDP]);
